@@ -1,6 +1,6 @@
 const path = require("path"); //Access where you move dir, local or cloud
 const htmlWebpackPlugin = require("html-webpack-plugin");
-
+const copyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -26,6 +26,9 @@ module.exports = {
       inject: true,
       template: "./public/index.html",
       filename: "./index.html",
+    }),
+    new copyWebpackPlugin({
+      patterns: [{ from: "./src/styles/style.css", to: "" }],
     }),
   ],
 };
