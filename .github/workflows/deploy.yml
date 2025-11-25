@@ -22,10 +22,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
-
-      # Si tu build falla en Node 18 con OpenSSL:
-      # run: NODE_OPTIONS=--openssl-legacy-provider npm run build
+        run: NODE_OPTIONS=--openssl-legacy-provider npm run build
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
