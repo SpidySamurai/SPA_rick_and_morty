@@ -1,4 +1,5 @@
 import Header from "../template/Header";
+import Loading from "../template/Loading";
 import Home from "../pages/Home";
 import Character from "../pages/Character";
 import About from "../pages/About";
@@ -13,15 +14,39 @@ const routes = {
   "/about": About,
 };
 
+const loadingMessages = {
+  "/": "Loading character grid...",
+  "/page": "Loading character grid...",
+  "/:id": "Loading character details...",
+  "/about": "Loading about page...",
+};
+
 const router = async () => {
-  const header = null || document.getElementById("header");
-  const content = null || document.getElementById("content");
+  const header = document.getElementById("header");
+  const content = document.getElementById("content");
+
+  if (!header || !content) return;
 
   header.innerHTML = await Header();
-  let hash = getHash();
-  let route = await resolveRoutes(hash);
-  let render = routes[route] ? routes[route] : Error404;
-  content.innerHTML = await render();
+
+  const hash = getHash();
+  const route = await resolveRoutes(hash);
+  const render = routes[route] ? routes[route] : Error404;
+  const loadingMessage = loadingMessages[route] || "Loading portal data...";
+  content.innerHTML = Loading(loadingMessage);
+
+  try {
+    const view = await render();
+    content.innerHTML = view;
+  } catch (error) {
+    console.error("Render error", error);
+    content.innerHTML = `
+      <section class="Characters Characters--empty">
+        <p>Something went wrong while opening this portal.</p>
+        <a href="#/">Return home</a>
+      </section>
+    `;
+  }
 };
 
 export default router;

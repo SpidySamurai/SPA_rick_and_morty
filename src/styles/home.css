@@ -4,6 +4,131 @@
   gap: 1.5rem;
 }
 
+.SearchForm {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: end;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(12, 21, 34, 0.08);
+  border: 1px solid rgba(2, 108, 134, 0.08);
+}
+
+.SearchForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-weight: 600;
+  color: #15302c;
+}
+
+.SearchForm-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #607080;
+}
+
+.SearchForm input,
+.SearchForm select {
+  border-radius: 999px;
+  border: 1px solid rgba(2, 108, 134, 0.2);
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: #2c3a45;
+  background: #fafdff;
+  width: 100%;
+}
+
+.SearchForm select {
+  min-width: 150px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L0 0h8z' fill='%23026c86'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 8px;
+  padding-right: 32px;
+}
+
+.SearchForm select option {
+  color: #15302c;
+  background: #f1fbff;
+  font-weight: 600;
+  padding: 8px 12px;
+}
+
+.SearchForm select option:checked {
+  background: #026c86;
+  color: #fff;
+}
+
+.SearchForm-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  grid-column: 1 / -1;
+}
+
+.SearchForm button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.SearchForm button[type="submit"] {
+  background: #026c86;
+  color: #fff;
+  box-shadow: 0 10px 25px rgba(2, 108, 134, 0.3);
+}
+
+.SearchForm button[type="submit"]:hover {
+  transform: translateY(-2px);
+}
+
+.SearchForm-reset {
+  background: transparent;
+  color: #026c86;
+  border: 1px solid rgba(2, 108, 134, 0.4);
+}
+
+.ActiveFilters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.Filter-pill {
+  border: none;
+  border-radius: 999px;
+  background: rgba(2, 108, 134, 0.12);
+  color: #026c86;
+  padding: 6px 14px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.Filter-pill span {
+  font-size: 1rem;
+}
+
+.Filter-pill--clear {
+  background: transparent;
+  border: 1px solid rgba(2, 108, 134, 0.4);
+}
+
 .Characters {
   display: grid;
   grid-template-columns: 1fr;

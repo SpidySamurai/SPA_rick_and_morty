@@ -33,7 +33,7 @@ const Character = async () => {
     <section class="Character">
       <article class="Character-hero">
         <div class="Character-portrait">
-          <img src="${character.image}" alt="${character.name}">
+          <img src="${character.image}" alt="${character.name}" loading="lazy" decoding="async">
         </div>
         <div class="Character-meta">
           <div class="Character-heading">
