@@ -1,0 +1,120 @@
+.Characters-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.Characters {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.Character-item {
+  text-decoration: none;
+  border-radius: 12px;
+  margin: 0 0 20px 0;
+  display: block;
+  animation-duration: 0.6s;
+  animation-name: fade;
+}
+
+.Character-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px 12px 0 0;
+}
+
+.Character-item h2 {
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px;
+  margin: 0;
+}
+
+.Character-item a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(26, 32, 44, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+}
+
+.Character-item a:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(12, 21, 34, 0.18);
+}
+
+.Characters--empty {
+  text-align: center;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(26, 32, 44, 0.08);
+}
+
+.Characters--empty a {
+  color: #026c86;
+  font-weight: 600;
+}
+
+.Pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  background: #ffffff;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 108, 134, 0.12);
+  box-shadow: 0 8px 20px rgba(12, 21, 34, 0.08);
+}
+
+.Pagination-link {
+  text-decoration: none;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(2, 108, 134, 0.3);
+  color: #026c86;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.Pagination-link:hover {
+  background: rgba(2, 108, 134, 0.08);
+}
+
+.Pagination-link--disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.Pagination-info {
+  font-weight: 600;
+  color: #607080;
+}
+
+@media (max-width: 480px) {
+  .Pagination {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 600px) {
+  .Characters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 992px) {
+  .Characters {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

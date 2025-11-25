@@ -1,6 +1,6 @@
-const path = require("path"); //Access where you move dir, local or cloud
-const htmlWebpackPlugin = require("html-webpack-plugin");
-const copyWebpackPlugin = require("copy-webpack-plugin");
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -10,25 +10,34 @@ module.exports = {
   resolve: {
     extensions: [".js"],
   },
+  devServer: {
+    static: path.resolve(__dirname, "public"),
+    port: 8080,
+    open: true,
+    hot: true,
+    compress: true,
+    watchFiles: ["src/**/*", "public/index.html"],
+  },
   module: {
     rules: [
       {
         test: /\.js?$/,
-        exclude: /node_module/,
+        exclude: /node_modules/,
         use: {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
     ],
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: true,
       template: "./public/index.html",
       filename: "./index.html",
-    }),
-    new copyWebpackPlugin({
-      patterns: [{ from: "./src/styles/style.css", to: "" }],
     }),
   ],
 };

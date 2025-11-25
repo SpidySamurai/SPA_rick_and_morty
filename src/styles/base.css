@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #3c484e;
+  font-family: "Open Sans", sans-serif;
+}
+
+.Main {
+  padding: 24px 16px;
+  display: block;
+}
+
+.Main-content {
+  width: min(100%, 1100px);
+  margin: 0 auto;
+}
+
+.loading {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 768px) {
+  .Main {
+    padding: 32px 24px;
+  }
+}
+
+@media (min-width: 992px) {
+  .Main {
+    padding: 40px 32px;
+  }
+}

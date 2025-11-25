@@ -1,0 +1,54 @@
+.Error404 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+}
+
+.Error404-card {
+  max-width: 480px;
+  text-align: center;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(17, 23, 39, 0.12);
+  border: 1px solid rgba(2, 108, 134, 0.12);
+}
+
+.Error404-code {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #026c86;
+  margin: 0 0 8px;
+}
+
+.Error404-card h2 {
+  margin: 0 0 12px;
+  color: #15302c;
+}
+
+.Error404-card p {
+  margin: 0 0 24px;
+  color: #607080;
+  line-height: 1.5;
+}
+
+.Error404-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  background: #026c86;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.Error404-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(2, 108, 134, 0.35);
+}
