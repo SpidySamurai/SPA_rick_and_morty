@@ -3,9 +3,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
-  color: #3c484e;
-  font-family: "Open Sans", sans-serif;
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: var(--font-size-base);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
 .Main {

@@ -3,6 +3,7 @@ import Loading from "../template/Loading";
 import Home from "../pages/Home";
 import Character from "../pages/Character";
 import About from "../pages/About";
+import Favorites from "../pages/Favorites";
 import Error404 from "../pages/Error404";
 import getHash from "../utils/getHash";
 import resolveRoutes from "../utils/resolveRoutes";
@@ -12,6 +13,7 @@ const routes = {
   "/page": Home,
   "/:id": Character,
   "/about": About,
+  "/favorites": Favorites,
 };
 
 const loadingMessages = {
@@ -19,6 +21,7 @@ const loadingMessages = {
   "/page": "Loading character grid...",
   "/:id": "Loading character details...",
   "/about": "Loading about page...",
+  "/favorites": "Loading your collection...",
 };
 
 const router = async () => {

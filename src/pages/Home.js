@@ -142,18 +142,7 @@ const renderActiveFilters = (filters) => {
   return `<div class="ActiveFilters" aria-label="Active filters">${pills.join("")}</div>`;
 };
 
-const Home = async () => {
-  const currentPage = getPage();
-  const query = getQuery();
-  const filters = {
-    name: query.get("name")?.trim() || "",
-    status: (query.get("status") || "").toLowerCase(),
-    species: query.get("species")?.trim() || "",
-    gender: (query.get("gender") || "").toLowerCase(),
-  };
-  const hasFilters = Boolean(filters.name || filters.status || filters.species || filters.gender);
-  const characters = await getData(null, { page: currentPage, ...filters });
-
+export const renderCharacterGrid = (characters, hasFilters, currentPage, filters) => {
   if (!characters || characters.error || !characters.results) {
     const errorMessage = hasFilters
       ? "No characters matched those filters."
@@ -166,6 +155,46 @@ const Home = async () => {
       </section>
     `;
   }
+
+  return `
+      ${renderActiveFilters(filters)}
+      <div class="Characters">
+        ${characters.results
+          .map(
+            (character) => `
+          <article class="Character-item">
+            <button class="Favorite-btn" data-id="${character.id}" aria-label="Toggle favorite">
+                <span class="icon-empty">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </span>
+                <span class="icon-filled">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ff4757" stroke="#ff4757" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </span>
+            </button>
+            <a href="#/${character.id}/">
+              <img src="${character.image}" alt="${character.name}" loading="lazy" decoding="async">
+              <h2>${character.name}</h2>
+            </a>
+          </article>
+        `
+          )
+          .join("")}
+      </div>
+      ${paginate(characters.info, currentPage, filters)}
+  `;
+};
+
+const Home = async () => {
+  const currentPage = getPage();
+  const query = getQuery();
+  const filters = {
+    name: query.get("name")?.trim() || "",
+    status: (query.get("status") || "").toLowerCase(),
+    species: query.get("species")?.trim() || "",
+    gender: (query.get("gender") || "").toLowerCase(),
+  };
+  const hasFilters = Boolean(filters.name || filters.status || filters.species || filters.gender);
+  const characters = await getData(null, { page: currentPage, ...filters });
 
   const view = `
     <section class="Characters-section" data-page="${currentPage}">
@@ -223,26 +252,12 @@ const Home = async () => {
           </select>
         </label>
         <div class="SearchForm-actions">
-          <button type="submit">Apply filters</button>
           <button type="reset" class="SearchForm-reset">Clear</button>
         </div>
       </form>
-      ${renderActiveFilters(filters)}
-      <div class="Characters">
-        ${characters.results
-          .map(
-            (character) => `
-          <article class="Character-item">
-            <a href="#/${character.id}/">
-              <img src="${character.image}" alt="${character.name}" loading="lazy" decoding="async">
-              <h2>${character.name}</h2>
-            </a>
-          </article>
-        `
-          )
-          .join("")}
+      <div id="characters-container">
+        ${renderCharacterGrid(characters, hasFilters, currentPage, filters)}
       </div>
-      ${paginate(characters.info, currentPage, filters)}
     </section>
   `;
   return view;

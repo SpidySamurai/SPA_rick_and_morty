@@ -1,19 +1,20 @@
 .About {
-  background: #ffffff;
+  background: var(--color-bg-card);
   padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(39, 44, 49, 0.08);
-  color: #3c484e;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  color: var(--color-text);
   max-width: 860px;
   margin: 2rem auto;
   line-height: 1.6;
   border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: background-color var(--transition-speed);
 }
 
 .About h2 {
   margin-top: 0;
   font-size: 1.7rem;
-  color: #15302c;
+  color: var(--color-primary);
 }
 
 .About-list {
@@ -25,12 +26,12 @@
 }
 
 .About-list li {
-  background: #f7fafc;
+  background: var(--color-bg);
   border-radius: 10px;
   padding: 12px 14px;
   border: 1px solid rgba(2, 108, 134, 0.12);
 }
 
 .About-list strong {
-  color: #026c86;
+  color: var(--color-secondary);
 }

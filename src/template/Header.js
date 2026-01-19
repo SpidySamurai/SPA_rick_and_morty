@@ -9,7 +9,11 @@ const Header = () => {
         <nav class="Header-nav" aria-label="Primary navigation">
           <a href="#/">Home</a>
           <a href="#/about/">About</a>
+          <a href="#/favorites/">Favorites</a>
           <a href="https://rickandmortyapi.com/" target="_blank" rel="noopener">API</a>
+          <button class="ThemeToggle" aria-label="Toggle Dark Mode">
+            <span class="ThemeToggle-icon">🌓</span>
+          </button>
         </nav>
       </div>
     </header>

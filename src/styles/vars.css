@@ -1,0 +1,52 @@
+:root {
+  /* Color Palette - Light Theme (Default) */
+  --color-primary: #8af0b7; /* Rick's portal green-ish */
+  --color-secondary: #00b5cc; /* Morty's shirt blue-ish */
+  --color-accent: #f2ce5b; /* Yellow shirt */
+
+  --color-bg: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-text: #333333;
+  --color-text-muted: #666666;
+
+  --color-header-bg: rgba(255, 255, 255, 0.85);
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Typography */
+  --font-main:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  --font-size-base: 16px;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2rem;
+
+  /* Borders & Shadows */
+  --border-radius: 12px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-speed: 0.3s;
+}
+
+[data-theme="dark"] {
+  /* Color Palette - Dark Theme */
+  --color-primary: #9cf2c0;
+  --color-secondary: #1ad3eb;
+
+  --color-bg: #1a1a1a;
+  --color-bg-card: #2d2d2d;
+  --color-text: #e0e0e0;
+  --color-text-muted: #a0a0a0;
+
+  --color-header-bg: rgba(26, 26, 26, 0.85);
+
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --box-shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.4);
+}

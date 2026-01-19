@@ -1,0 +1,125 @@
+.Favorites-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.Favorites-title {
+  font-size: 2rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+}
+
+.Favorites-subtitle {
+  color: var(--color-text-muted);
+}
+
+/* Heart Button Styles */
+.Favorite-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 8px;
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  color: var(--color-text-muted);
+  
+  /* Position absolute for cards */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(4px);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Ensure container allows high z-index children to be seen */
+.Characters .Character-item {
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+.Favorite-btn:hover {
+  transform: scale(1.1);
+  background: #fff;
+}
+
+.Favorite-btn.is-favorite {
+  color: #ff4757;
+}
+
+.Favorite-btn svg {
+  width: 24px;
+  height: 24px;
+  /* Ensure SVG has dimension and isn't collapsed by flex */
+  min-width: 24px; 
+}
+
+.Favorite-btn .icon-empty svg {
+  stroke: #333333;
+  fill: none;
+}
+
+.Favorite-btn .icon-filled svg {
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.Favorite-btn .icon-filled {
+  display: none;
+}
+
+.Favorite-btn .icon-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Favorite-btn.is-favorite .icon-filled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.Favorite-btn.is-favorite .icon-empty {
+  display: none;
+}
+
+.Favorite-btn.is-favorite {
+  color: #ff4757;
+}
+
+.Favorite-btn.is-favorite svg {
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+/* Adjust Character Item for absolute positioning */
+.Character-item {
+  position: relative;
+}
+
+/* Specific positioning for Detail View */
+.Character-portrait .Favorite-btn {
+  top: 15px;
+  right: 15px;
+  width: 48px;
+  height: 48px;
+  font-size: 1.8rem;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+[data-theme="dark"] .Favorite-btn {
+  background: rgba(0, 0, 0, 0.6);
+}
